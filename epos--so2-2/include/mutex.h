@@ -33,6 +33,9 @@ public:
 
 	if(tsl(_locked))
 	    sleep();
+
+	if(Traits_Thread::active_scheduler)
+	    CPU::int_enable();
     }
     void unlock() { 
 	db<Mutex>(TRC) << "Mutex::unlock()\n";
@@ -40,7 +43,10 @@ public:
 	    CPU::int_disable();
 
 	_locked = false;
-	wakeup(); 
+	wakeup();
+
+	if(Traits_Thread::active_scheduler)
+	    CPU::int_enable(); 
     }
 
     static int init(System_Info *si);

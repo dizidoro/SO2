@@ -36,6 +36,9 @@ public:
 	dec(_value);
 	if(_value < 0)
 	    sleep();
+	
+	if(Traits_Thread::active_scheduler)
+	    CPU::int_enable();
     }
     void v() {
 	db<Semaphore>(TRC) << "Semaphore::v(value=" << _value << ")\n";
@@ -44,6 +47,9 @@ public:
 
 	if(inc(_value) < 1)
 	    wakeup();
+	
+	if(Traits_Thread::active_scheduler)
+	    CPU::int_enable();
     }
 
     static int init(System_Info *si);
