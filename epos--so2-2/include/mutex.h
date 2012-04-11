@@ -20,7 +20,10 @@ private:
 
 public:
     Mutex() : _locked(false) { db<Mutex>(TRC) << "Mutex()\n"; }
-    ~Mutex() { db<Mutex>(TRC) << "~Mutex()\n"; }
+    ~Mutex() { 
+        db<Mutex>(TRC) << "~Mutex()\n"; 
+	wakeup_all();
+    }
 
     void lock() { 
 	db<Mutex>(TRC) << "Mutex::lock()\n";

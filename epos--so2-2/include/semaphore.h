@@ -9,7 +9,7 @@
 #define __semaphore_h
 
 #include <common/synchronizer.h>
-
+#
 __BEGIN_SYS
 
 class Semaphore: public Synchronizer_Common
@@ -24,10 +24,14 @@ public:
     }
     ~Semaphore() {
 	db<Semaphore>(TRC) << "~Semaphore()\n";
+        wakeup_all();
     }
 
     void p() { 
 	db<Semaphore>(TRC) << "Semaphore::p(value=" << _value << ")\n";
+	if(Traits<thread>::active_scheduler)
+	    CPU::int_disable();
+	        
 	dec(_value);
 	while(_value < 0)
 	    sleep();
