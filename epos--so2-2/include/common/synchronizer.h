@@ -24,15 +24,19 @@ private:
     Queue<Thread> _waiting;
 
 protected:
+    
     // Atomic operations
     bool tsl(volatile bool & lock) { return CPU::tsl(lock); }
     int inc(volatile int & number) { return CPU::finc(number); }
     int dec(volatile int & number) { return CPU::fdec(number); }
 
+
     // Thread operations
+
     void sleep() {
 	if(!busy_waiting) {
        	    Thread * running = Thread::running();
+	    running->sync_queue(&_waiting);
             _waiting.insert(running->link_sync());
             running->suspend(); //implicitamente reabilita as interrupcoes
         }

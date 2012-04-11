@@ -24,6 +24,7 @@ public:
     }
     ~Condition() {
 	db<Condition>(TRC) << "~Condition()\n";
+	wakeup_all();
     }
 
     void wait() {

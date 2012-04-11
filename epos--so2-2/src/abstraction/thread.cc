@@ -17,6 +17,7 @@ Thread::Queue Thread::_suspended;
 
 // Methods
 Thread::Queue::Element * Thread::link_sync() { return &_link_sync; }
+void Thread::sync_queue(Thread::Queue * queue){ _sync_queue = queue; }
 
 int Thread::join() {
     db<Thread>(TRC) << "Thread::join(this=" << this

@@ -147,6 +147,7 @@ public:
     ~Thread() { //Destrutor
 	if(_who_joined !=0 && _suspended.search(_who_joined))
 	    _who_joined->_state = LOST;
+        _sync_queue->remove(this);
 	_ready.remove(this);
 	_suspended.remove(this);
 	free(_stack);
@@ -160,7 +161,9 @@ public:
     void pass();
     void suspend();
     void resume();
+    
     Queue::Element * link_sync();
+    void sync_queue(Queue * queue);
 
     static void yield();
     static void exit(int status = 0);
@@ -205,10 +208,11 @@ private:
     volatile State _state;
     volatile Priority _priority;
     Queue::Element _link;
-//ADENDO
+
     Queue::Element _link_sync;
     Thread * _who_joined;
-//ADENDO
+    Queue * _sync_queue;
+
     static Thread * volatile _running;
     static Queue _ready;
     static Queue _suspended;
