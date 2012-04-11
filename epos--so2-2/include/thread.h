@@ -64,9 +64,8 @@ public:
 	  _state(state),
 	  _priority(priority),
 	  _link(this),
-//ADENDO
+	  _link_sync(this),
 	  _who_joined(0)
-//ADENDO
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -86,9 +85,9 @@ public:
 	  _state(state),
 	  _priority(priority),
 	  _link(this),
-//ADENDO
+	  _link_sync(this),
+	  _link_sync(this),
 	  _who_joined(0)
-//ADENDO
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -109,9 +108,8 @@ public:
 	  _state(state),
 	  _priority(priority),
 	  _link(this),
-//ADENDO
+	  _link_sync(this),
 	  _who_joined(0)
-//ADENDO
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -133,9 +131,8 @@ public:
 	  _state(state),
 	  _priority(priority),
 	  _link(this),
-//ADENDO
+	  _link_sync(this),
 	  _who_joined(0)
-//ADENDO
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -160,6 +157,7 @@ public:
     void pass();
     void suspend();
     void resume();
+    Queue::Element * link_sync();
 
     static void yield();
     static void exit(int status = 0);
@@ -205,6 +203,7 @@ private:
     volatile Priority _priority;
     Queue::Element _link;
 //ADENDO
+    Queue::Element _link_sync;
     Thread * _who_joined;
 //ADENDO
     static Thread * volatile _running;

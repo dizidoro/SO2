@@ -63,7 +63,9 @@ public:
 		   Context(entry)),
 	  _state(state),
 	  _priority(priority),
-	  _link(this)
+	  _link(this),
+	  _link_sync(this),
+	  _who_joined(0)
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -82,7 +84,10 @@ public:
 		   Context(entry)),
 	  _state(state),
 	  _priority(priority),
-	  _link(this)
+	  _link(this),
+	  _link_sync(this),
+	  _link_sync(this),
+	  _who_joined(0)
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -102,7 +107,9 @@ public:
 		   Context(entry)),
 	  _state(state),
 	  _priority(priority),
-	  _link(this)
+	  _link(this),
+	  _link_sync(this),
+	  _who_joined(0)
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -123,7 +130,9 @@ public:
 		   Context(entry)),
 	  _state(state),
 	  _priority(priority),
-	  _link(this)
+	  _link(this),
+	  _link_sync(this),
+	  _who_joined(0)
     {
 	header(entry, stack_size);
 	Log_Addr sp = _stack + stack_size;
@@ -148,6 +157,7 @@ public:
     void pass();
     void suspend();
     void resume();
+    Queue::Element * link_sync();
 
     static void yield();
     static void exit(int status = 0);
@@ -159,14 +169,14 @@ public:
 
 private:
     void header(Log_Addr entry, unsigned int stack_size) {
-	/*db<Thread>(TRC) << "Thread(this=" << this 
+	db<Thread>(TRC) << "Thread(this=" << this 
 			<< ",entry=" << (void *)entry 
 			<< ",state=" << _state
 			<< ",priority=" << _priority
 			<< ",stack={b=" << _stack
 			<< ",s=" << stack_size
 			<< ",context={b=" << _context
-			<< "," << *_context << "})\n";*/
+			<< "," << *_context << "})\n";
     }
     void body() {
 	if(Traits::active_scheduler)
@@ -192,7 +202,10 @@ private:
     volatile State _state;
     volatile Priority _priority;
     Queue::Element _link;
-
+//ADENDO
+    Queue::Element _link_sync;
+    Thread * _who_joined;
+//ADENDO
     static Thread * volatile _running;
     static Queue _ready;
     static Queue _suspended;
