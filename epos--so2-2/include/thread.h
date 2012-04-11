@@ -181,7 +181,7 @@ private:
     void body() {
 	if(Traits::active_scheduler)
 	    CPU::int_disable();
-
+        
 	switch(_state) {
 	case RUNNING: break;
 	case SUSPENDED: _suspended.insert(&_link); break;

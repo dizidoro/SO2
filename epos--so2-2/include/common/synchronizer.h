@@ -21,6 +21,7 @@ protected:
     
 private:
     static const bool busy_waiting = Traits<Thread>::busy_waiting;
+    Queue<Thread> _waiting;
 
 protected:
     // Atomic operations
@@ -30,16 +31,37 @@ protected:
 
     // Thread operations
     void sleep() {
-	if(!busy_waiting) // configurable feature
-	    Thread::yield();
+	if(!busy_waiting) {
+       	    Thread * running = Thread::running();
+            _waiting.insert(running->link_sync());
+            running->suspend(); //implicitamente reabilita as interrupcoes
+        }
+	if(Traits<Thread>::active_scheduler)
+            CPU::int_enable();
     }
     void wakeup() {
-	if(!busy_waiting) // configurable feature
-	    ; // a real wakeup comes here
+        if(!busy_waiting) {// configurable feature
+            if(!_waiting.empty()){
+	        Thread * released = _waiting.remove()->object();
+		released->resume(); //implicitamente reabilita as interrupcoes
+	    }
+        }
+	if(Traits<Thread>::active_scheduler)
+            CPU::int_enable();
     }
     void wakeup_all() {
-	if(!busy_waiting) // configurable feature
-	    ; // a real wakeup_all comes here
+        if(!busy_waiting) {// configurable feature
+        
+            Thread * released;
+            while(!_waiting.empty()) {
+                released = _waiting.remove()->object();
+                released->resume(); //implicitamente reabilita as interrupcoes
+            }
+        }
+     
+        if(Traits<Thread>::active_scheduler)
+            CPU::int_enable();
+        
     }
 };
 

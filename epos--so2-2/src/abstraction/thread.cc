@@ -20,17 +20,27 @@ Thread::Queue::Element * Thread::link_sync() { return &_link_sync; }
 
 int Thread::join() {
     db<Thread>(TRC) << "Thread::join(this=" << this
-		    << ",state=" << _state << ")\n";
-//ADENDO
-    if(_who_joined == 0)//se _who_joined ainda nao foi setado
+		    << ",state=" << _state << ", _who_joined=" <<_who_joined << ")\n";
+    
+    if(Traits::active_scheduler)
+	CPU::int_disable();
+    _who_joined = 0;// mudar porrarrrrrrrar
+    if(_who_joined == 0){//se _who_joined ainda nao foi setado
     	_who_joined = _running;
-    else	
+    }
+    else{
+	if(Traits::active_scheduler)
+	    CPU::int_enable();
 	return -1; //indicar erro! Modificar valor!
-//ADENDO
-//ALTERADO
+    }	
+
     if(_state != FINISHING)
 	_who_joined->suspend();
-//ALTERADO
+    db<Thread>(TRC) << "Depois do suspend this=" << this
+		    << ",state=" << _state << ")\n";
+    if(Traits::active_scheduler)
+	CPU::int_enable();
+
      return *((int *)_stack);
 }
 
@@ -132,24 +142,38 @@ void Thread::yield() {
 
 void Thread::exit(int status)
 {
-    db<Thread>(TRC) << "Thread::exit(status=" << status << ")\n";
-
+    db<Thread>(TRC) << "Thread::exit(status=" << status <<", running state=" <<_running->_state << ")\n";
+  
     if(Traits::active_scheduler)
 	CPU::int_disable();
+    
+    if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
+        db<Thread>(TRC) << "Resume malandro! "<< _running->_who_joined << "\n";
+        _running->_who_joined->resume();
+        _running->_who_joined = 0;
+    }
+    
+    if(Traits::active_scheduler)
+	CPU::int_disable();		
 
     if(_ready.empty() && !_suspended.empty())
 	idle(); // implicitly re-enables interrupts
 
     if(Traits::active_scheduler)
 	CPU::int_disable();
-//ADENDO
-    if(_running->_who_joined != 0){
-        db<Thread>(TRC) << "Resume malandro!\n";
+//ADENDO 
+/*
+    if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
+        db<Thread>(TRC) << "Resume malandro! "<< _running->_who_joined << "\n";
         _running->_who_joined->resume();
         _running->_who_joined = 0;
     }
-//ADENDO   
- 
+    
+    if(Traits::active_scheduler)
+	CPU::int_disable();
+//ADENDO  
+*/
+    db<Thread>(TRC) << "Passei malandro!!\n";
     if(!_ready.empty()) {
 	Thread * old = _running;
 	old->_state = FINISHING;

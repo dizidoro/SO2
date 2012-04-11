@@ -15,6 +15,7 @@ __BEGIN_SYS
 class Mutex: public Synchronizer_Common
 {
 private:
+    typedef Traits<Thread> Traits_Thread;
     typedef Traits<Mutex> Traits;
     static const Type_Id TYPE = Type<Mutex>::TYPE;
 
@@ -27,15 +28,15 @@ public:
 
     void lock() { 
 	db<Mutex>(TRC) << "Mutex::lock()\n";
-	if(Traits<thread>::active_scheduler)
-	    CPU::int_disable();
+	if(Traits_Thread::active_scheduler)
+		CPU::int_disable();
 
 	if(tsl(_locked))
 	    sleep();
     }
     void unlock() { 
 	db<Mutex>(TRC) << "Mutex::unlock()\n";
-        if(Traits<thread>::active_scheduler)
+        if(Traits_Thread::active_scheduler)
 	    CPU::int_disable();
 
 	_locked = false;

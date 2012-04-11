@@ -15,6 +15,7 @@ __BEGIN_SYS
 class Semaphore: public Synchronizer_Common
 {
 private:
+    typedef Traits<Thread> Traits_Thread;
     typedef Traits<Semaphore> Traits;
     static const Type_Id TYPE = Type<Semaphore>::TYPE;
 
@@ -29,7 +30,7 @@ public:
 
     void p() { 
 	db<Semaphore>(TRC) << "Semaphore::p(value=" << _value << ")\n";
-	if(Traits<thread>::active_scheduler)
+	if(Traits_Thread::active_scheduler)
 	    CPU::int_disable();
 	        
 	dec(_value);
@@ -38,7 +39,7 @@ public:
     }
     void v() {
 	db<Semaphore>(TRC) << "Semaphore::v(value=" << _value << ")\n";
-	if(Traits<thread>::active_scheduler)
+	if(Traits_Thread::active_scheduler)
 	    CPU::int_disable();
 
 	if(inc(_value) < 1)
