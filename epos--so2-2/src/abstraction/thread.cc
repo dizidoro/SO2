@@ -39,7 +39,7 @@ int Thread::join() {
 	
 
     if(_state != FINISHING)
-	_who_joined->suspend();
+	_running->suspend();
     db<Thread>(TRC) << "Depois do suspend this=" << this
 		    << ",state=" << _state << ")\n";
     
