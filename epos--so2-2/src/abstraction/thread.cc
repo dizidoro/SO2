@@ -24,7 +24,9 @@ int Thread::join() {
     
     if(Traits::active_scheduler)
 	CPU::int_disable();
-    _who_joined = 0;// mudar porrarrrrrrrar
+    _who_joined = 0;//gambiarra tirar
+    
+    
     if(_who_joined == 0){//se _who_joined ainda nao foi setado
     	_who_joined = _running;
     }
@@ -32,12 +34,17 @@ int Thread::join() {
 	if(Traits::active_scheduler)
 	    CPU::int_enable();
 	return -1; //indicar erro! Modificar valor!
-    }	
+    }
+	
 
     if(_state != FINISHING)
 	_who_joined->suspend();
     db<Thread>(TRC) << "Depois do suspend this=" << this
 		    << ",state=" << _state << ")\n";
+    
+    if(_who_joined->_state == LOST)
+	return -2;
+    
     if(Traits::active_scheduler)
 	CPU::int_enable();
 

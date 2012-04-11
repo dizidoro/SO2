@@ -38,7 +38,8 @@ public:
         RUNNING,
         READY,
         SUSPENDED,
-	FINISHING
+	FINISHING,
+	LOST
     };
 
     typedef short Priority;
@@ -143,7 +144,9 @@ public:
 			       reinterpret_cast<unsigned int>(&implicit_exit);
 	body();
     }
-    ~Thread() {
+    ~Thread() { //Destrutor
+	if(_who_joined !=0 && _suspended.search(_who_joined))
+	    _who_joined->_state = LOST;
 	_ready.remove(this);
 	_suspended.remove(this);
 	free(_stack);

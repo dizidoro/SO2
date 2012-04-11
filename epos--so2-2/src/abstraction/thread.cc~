@@ -148,7 +148,6 @@ void Thread::exit(int status)
 	CPU::int_disable();
     
     if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
-        db<Thread>(TRC) << "Resume malandro! "<< _running->_who_joined << "\n";
         _running->_who_joined->resume();
         _running->_who_joined = 0;
     }
@@ -161,19 +160,7 @@ void Thread::exit(int status)
 
     if(Traits::active_scheduler)
 	CPU::int_disable();
-//ADENDO 
-/*
-    if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
-        db<Thread>(TRC) << "Resume malandro! "<< _running->_who_joined << "\n";
-        _running->_who_joined->resume();
-        _running->_who_joined = 0;
-    }
-    
-    if(Traits::active_scheduler)
-	CPU::int_disable();
-//ADENDO  
-*/
-    db<Thread>(TRC) << "Passei malandro!!\n";
+
     if(!_ready.empty()) {
 	Thread * old = _running;
 	old->_state = FINISHING;

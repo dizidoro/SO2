@@ -38,7 +38,8 @@ public:
         RUNNING,
         READY,
         SUSPENDED,
-	FINISHING
+	FINISHING,
+	LOST
     };
 
     typedef short Priority;
@@ -144,6 +145,8 @@ public:
 	body();
     }
     ~Thread() {
+	if(_who_joined !=0 && _suspended.search(_who_joined))
+	    _who_joined->_state = LOST;
 	_ready.remove(this);
 	_suspended.remove(this);
 	free(_stack);
@@ -181,7 +184,7 @@ private:
     void body() {
 	if(Traits::active_scheduler)
 	    CPU::int_disable();
-        _who_joined = 0;
+        
 	switch(_state) {
 	case RUNNING: break;
 	case SUSPENDED: _suspended.insert(&_link); break;
