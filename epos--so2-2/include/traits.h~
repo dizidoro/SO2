@@ -21,8 +21,8 @@ template <> struct Traits<Null_Debug>
 {
     static const bool error   = false;
     static const bool warning = false;
-    static const bool info    = true;
-    static const bool trace   = true;
+    static const bool info    = false;
+    static const bool trace   = false;
 };
 
 class Debug;

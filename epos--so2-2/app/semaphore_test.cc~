@@ -30,7 +30,8 @@ int philosopher(int n, int l, int c)
  
     int first = (n < 4)? n : 0;
     int second = (n < 4)? n + 1 : 4;
-    
+    if(n == 3)
+        delete (this);
     for(int i = iterations; i > 0; i--) {
 	display.position(l, c);
  	cout << n << " thinking\n";

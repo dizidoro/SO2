@@ -154,25 +154,29 @@ void Thread::exit(int status)
   
     if(Traits::active_scheduler)
 	CPU::int_disable();
-    
-    if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
-        _running->_who_joined->resume();
-        _running->_who_joined = 0;
-    }
-    
-    if(Traits::active_scheduler)
-	CPU::int_disable();		
+    	
 
     if(_ready.empty() && !_suspended.empty())
 	idle(); // implicitly re-enables interrupts
 
     if(Traits::active_scheduler)
 	CPU::int_disable();
+     
+    if((_running->_who_joined != 0) && _suspended.search(_running->_who_joined)){
+        _running->_who_joined->resume();
+        _running->_who_joined = 0;
+    }
+    
+    if(Traits::active_scheduler)
+	CPU::int_disable();	
 
     if(!_ready.empty()) {
 	Thread * old = _running;
 	old->_state = FINISHING;
-	*((int *)(void *)old->_stack) = status;
+        if(status == -1)
+            free(_running->_stack);
+        else
+	    *((int *)(void *)old->_stack) = status;
 
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;
