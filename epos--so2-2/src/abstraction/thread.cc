@@ -12,6 +12,7 @@ __BEGIN_SYS
 
 // Class attributes
 Thread * volatile Thread::_running;
+Thread * Thread::_idle;
 Thread::Queue Thread::_ready;
 Thread::Queue Thread::_suspended;
 

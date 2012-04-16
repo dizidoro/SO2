@@ -39,7 +39,8 @@ public:
         READY,
         SUSPENDED,
 	FINISHING,
-	LOST
+	LOST,
+        IDLE
     };
 
     typedef short Priority;
@@ -216,6 +217,8 @@ private:
     Queue * _sync_queue;
 
     static Thread * volatile _running;
+    static Thread * _idle;    
+
     static Queue _ready;
     static Queue _suspended;
 };
