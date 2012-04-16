@@ -59,12 +59,17 @@ void Thread::pass() {
     if(Traits::active_scheduler)
 	CPU::int_disable();
 
-    Thread * old = _running;
-    old->_state = READY;
-    _ready.insert(&old->_link);
+    Thread * old;
+    if(_running->_state == IDLE)
+        old = _idle;
+    else {
+        old = _running;
+        old->_state = READY;
+        _ready.insert(&old->_link);
+        _state = RUNNING;
+    }
 
-    _ready.remove(this);
-    _state = RUNNING;
+    _ready.remove(this); //inocuo se this nao estiver na fila
     _running = this;
 
 //     old->_context->save(); // can be used to force an update
