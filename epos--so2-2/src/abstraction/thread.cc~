@@ -130,7 +130,7 @@ void Thread::yield() {
 
     if(!_ready.empty()) {
         Thread * old;
-        if(_running->state == IDLE)
+        if(_running->_state == IDLE)
             old = _idle;
         else {
 	    old = _running;
@@ -194,15 +194,19 @@ void Thread::exit(int status)
 			<< *_running->_context << "}\n";
 
 	CPU::switch_context(&old->_context, _running->_context);
+    } else if(!_suspended.empty()){
+        Thread * old = _running;
+        CPU::switch_context(&old->_context, _idle->_context);
     } else {
-	db<Thread>(WRN) << "The last thread in the system has exited!\n";
-	db<Thread>(WRN) << "Halting the CPU ...\n";
-    	CPU::int_disable();
-	CPU::halt(); // this must be turned into a conf-feature (reboot, halt)
+        db<Thread>(WRN) << "The last thread in the system has exited!\n";
+        db<Thread>(WRN) << "Halting the CPU ...\n";
+
+        CPU::int_disable();
+        CPU::halt(); // this must be turned into a conf-feature (reboot, halt)
     }
 
     if(Traits::active_scheduler)
-	CPU::int_enable();
+       CPU::int_enable();
 }
 
 void Thread::idle() {
