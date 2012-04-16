@@ -130,7 +130,7 @@ void Thread::yield() {
 
     if(!_ready.empty()) {
         Thread * old;
-        if(_running->state == IDLE)
+        if(_running->_state == IDLE)
             old = _idle;
         else {
 	    old = _running;

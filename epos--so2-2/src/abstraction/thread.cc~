@@ -129,9 +129,14 @@ void Thread::yield() {
 	CPU::int_disable();
 
     if(!_ready.empty()) {
-	Thread * old = _running;
-	old->_state = READY;
-	_ready.insert(&old->_link);
+        Thread * old;
+        if(_running->state == IDLE)
+            old = _idle;
+        else {
+	    old = _running;
+	    old->_state = READY;
+	    _ready.insert(&old->_link);
+        }
 
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;
