@@ -194,6 +194,7 @@ private:
 	switch(_state) {
 	case RUNNING: break;
 	case SUSPENDED: _suspended.insert(&_link); break;
+        case IDLE: break;
 	default: _ready.insert(&_link);
 	}
 

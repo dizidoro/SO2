@@ -103,7 +103,7 @@ void  Thread::suspend()
 
 	CPU::switch_context(&_context, _running->_context);
     } else
-	idle(); // implicitly re-enables interrupts
+	CPU::switch_context(&_context, _idle->_context);
 
     if(Traits::active_scheduler)
 	CPU::int_enable();
@@ -129,9 +129,14 @@ void Thread::yield() {
 	CPU::int_disable();
 
     if(!_ready.empty()) {
-	Thread * old = _running;
-	old->_state = READY;
-	_ready.insert(&old->_link);
+        Thread * old;
+        if(_running->state == IDLE)
+            old = _idle;
+        else {
+	    old = _running;
+	    old->_state = READY;
+	    _ready.insert(&old->_link);
+        }
 
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;
@@ -200,8 +205,8 @@ void Thread::exit(int status)
 	CPU::int_enable();
 }
 
-void Thread::idle()
-{
+void Thread::idle() {
+    while (true) {
     db<Thread>(TRC) << "Thread::idle()\n";
 
     db<Thread>(WRN) << "There are no runnable threads at the moment!\n";
@@ -209,6 +214,7 @@ void Thread::idle()
 
     CPU::int_enable();
     CPU::halt();
+    }
 }
 
 __END_SYS
