@@ -66,10 +66,10 @@ void Thread::pass() {
         old = _running;
         old->_state = READY;
         _ready.insert(&old->_link);
+        _state = RUNNING;
     }
 
-    _ready.remove(this);
-    _state = RUNNING;
+    _ready.remove(this); //inocuo se this nao estiver na fila
     _running = this;
 
 //     old->_context->save(); // can be used to force an update
@@ -84,17 +84,18 @@ void Thread::pass() {
 	CPU::int_enable();
 }
 
-void  Thread::suspend()
-{
+void  Thread::suspend() {
     db<Thread>(TRC) << "Thread::suspend(this=" << this << ")\n";
 
     if(Traits::active_scheduler)
 	CPU::int_disable();
 
-    if(_running != this)
-	_ready.remove(this);
-    _state = SUSPENDED;
-    _suspended.insert(&_link);
+    if(_state != IDLE) {
+        if(_running != this)
+	    _ready.remove(this);
+        _state = SUSPENDED;
+        _suspended.insert(&_link);
+    }
 
     if(!_ready.empty()) {
 	_running = _ready.remove()->object();
@@ -107,7 +108,7 @@ void  Thread::suspend()
 			<< *_running->_context << "}\n";
 
 	CPU::switch_context(&_context, _running->_context);
-    } else
+    } else if (_running->_state != IDLE)
 	CPU::switch_context(&_context, _idle->_context);
 
     if(Traits::active_scheduler)
@@ -120,9 +121,11 @@ void  Thread::resume() {
     if(Traits::active_scheduler)
 	CPU::int_disable();
 
-    _suspended.remove(this);
-    _state = READY;
-    _ready.insert(&_link);
+    if(!_state == IDLE) {
+        _suspended.remove(this);
+        _state = READY;
+        _ready.insert(&_link);
+    }
 
     if(Traits::active_scheduler)
 	CPU::int_enable();
