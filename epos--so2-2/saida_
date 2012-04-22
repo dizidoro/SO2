@@ -1,0 +1,5043 @@
+SETUP(bi=0x00107050)
+PC_PCI::init()
+PCI[0:0.0]={cls=1536,vid=32902,did=4663,rev=2}
+PCI[0:1.0]={cls=1537,vid=32902,did=28672,rev=0}
+PCI[0:1.1]={cls=257,vid=32902,did=28688,rev=0}
+PCI[0:1.3]={cls=1664,vid=32902,did=28947,rev=3}
+PCI[0:2.0]={cls=768,vid=4115,did=184,rev=0,reg[0]={b=0xf0000000,s=0x02000000},reg[1]={b=0xf2000000,s=0x00001000}}
+PCI[0:3.0]={cls=512,vid=4332,did=33081,rev=32,reg[1]={b=0xf2020000,s=0x00000100}}
+PCI address space={base=0xf0000000,size=0x02020100}
+Setting up this machine as follows: 
+  Processor: IA32
+  Memory:    32768 Kbytes
+  Host Id:   will get from the network!
+  Tasks:     1 (max)
+  Threads:   8 (max)
+  Setup:     20128 bytes
+  OS code:   31120 bytes		OS data:   262528 bytes
+  APP code:  4128 bytes		APP data:  16 bytes
+setup_idt(idt=0x01fff000)
+IDT[0]={sel=6,off=0x10100010,p=1,dpl=3,d=0} (0x00100010)
+setup_gdt(gdt=0x01ffe000)
+GDT[NULL=0]={bas=0x00000000,lim=0x00000000,p=0,dpl=0,s=0,typ=0,g=0,d=0,a=0}
+GDT[FLCD=1]={bas=0x00000000,lim=0x000fffff,p=1,dpl=0,s=1,typ=9,g=1,d=1,a=0}
+GDT[FLDT=2]={bas=0x00000000,lim=0x000fffff,p=1,dpl=0,s=1,typ=3,g=1,d=1,a=0}
+GDT[APCD=3]={bas=0x00000000,lim=0x000fffff,p=1,dpl=3,s=1,typ=9,g=1,d=1,a=0}
+GDT[APDT=4]={bas=0x00000000,lim=0x000fffff,p=1,dpl=3,s=1,typ=3,g=1,d=1,a=0}
+GDT[APST=5]={bas=0x00000000,lim=0x000fffff,p=1,dpl=3,s=1,typ=3,g=1,d=1,a=0}
+GDT[SYCD=6]={bas=0x00000000,lim=0x000fffff,p=1,dpl=0,s=1,typ=9,g=1,d=1,a=0}
+GDT[SYDT=7]={bas=0x00000000,lim=0x000fffff,p=1,dpl=0,s=1,typ=3,g=1,d=1,a=0}
+GDT[SYST=8]={bas=0x00000000,lim=0x000fffff,p=1,dpl=0,s=1,typ=3,g=1,d=1,a=0}
+setup_sys_pt(pmm={idt=0x01fff000,gdt=0x01ffe000,pt=0x01ffd000,pd=0x01ffc000,info=0x01ffb000,mem=0x01ff3000,io=0x01fea000,cod=0x01fe2000,dat=0x01fa1000,stk=0x01fa0000,apl=0x00000000,aph=0x01fa0000,fr1b=0x0000a000,fr1s=0x000003f6,fr2b=0x00401000,fr2s=0x00001b9f},code_size=8,data_size=65)
+SPT[0]=0x01fff023
+SPT[1]=0x01ffe023
+SPT[2]=0x01ffd023
+SPT[3]=0x01ffc023
+SPT[4]=0x01ffb023
+SPT[768]=0x01fe2023
+SPT[769]=0x01fe3023
+SPT[770]=0x01fe4023
+SPT[771]=0x01fe5023
+SPT[772]=0x01fe6023
+SPT[773]=0x01fe7023
+SPT[774]=0x01fe8023
+SPT[775]=0x01fe9023
+SPT[832]=0x01fa1023
+SPT[833]=0x01fa2023
+SPT[834]=0x01fa3023
+SPT[835]=0x01fa4023
+SPT[836]=0x01fa5023
+SPT[837]=0x01fa6023
+SPT[838]=0x01fa7023
+SPT[839]=0x01fa8023
+SPT[840]=0x01fa9023
+SPT[841]=0x01faa023
+SPT[842]=0x01fab023
+SPT[843]=0x01fac023
+SPT[844]=0x01fad023
+SPT[845]=0x01fae023
+SPT[846]=0x01faf023
+SPT[847]=0x01fb0023
+SPT[848]=0x01fb1023
+SPT[849]=0x01fb2023
+SPT[850]=0x01fb3023
+SPT[851]=0x01fb4023
+SPT[852]=0x01fb5023
+SPT[853]=0x01fb6023
+SPT[854]=0x01fb7023
+SPT[855]=0x01fb8023
+SPT[856]=0x01fb9023
+SPT[857]=0x01fba023
+SPT[858]=0x01fbb023
+SPT[859]=0x01fbc023
+SPT[860]=0x01fbd023
+SPT[861]=0x01fbe023
+SPT[862]=0x01fbf023
+SPT[863]=0x01fc0023
+SPT[864]=0x01fc1023
+SPT[865]=0x01fc2023
+SPT[866]=0x01fc3023
+SPT[867]=0x01fc4023
+SPT[868]=0x01fc5023
+SPT[869]=0x01fc6023
+SPT[870]=0x01fc7023
+SPT[871]=0x01fc8023
+SPT[872]=0x01fc9023
+SPT[873]=0x01fca023
+SPT[874]=0x01fcb023
+SPT[875]=0x01fcc023
+SPT[876]=0x01fcd023
+SPT[877]=0x01fce023
+SPT[878]=0x01fcf023
+SPT[879]=0x01fd0023
+SPT[880]=0x01fd1023
+SPT[881]=0x01fd2023
+SPT[882]=0x01fd3023
+SPT[883]=0x01fd4023
+SPT[884]=0x01fd5023
+SPT[885]=0x01fd6023
+SPT[886]=0x01fd7023
+SPT[887]=0x01fd8023
+SPT[888]=0x01fd9023
+SPT[889]=0x01fda023
+SPT[890]=0x01fdb023
+SPT[891]=0x01fdc023
+SPT[892]=0x01fdd023
+SPT[893]=0x01fde023
+SPT[894]=0x01fdf023
+SPT[895]=0x01fe0023
+SPT[896]=0x01fe1023
+SPT[960]=0x01fa0023
+setup_sys_pd(pmm={idt=0x01fff000,...},mem_sz=33554432,pci=0xf0000000,pci_sz=33689600)
+PD[0]=0x01ff3027
+PD[1]=0x01ff4027
+PD[2]=0x01ff5027
+PD[3]=0x01ff6027
+PD[4]=0x01ff7027
+PD[5]=0x01ff8027
+PD[6]=0x01ff9027
+PD[7]=0x01ffa027
+PD[64]=0x01ff3023
+PD[65]=0x01ff4023
+PD[66]=0x01ff5023
+PD[67]=0x01ff6023
+PD[68]=0x01ff7023
+PD[69]=0x01ff8023
+PD[70]=0x01ff9023
+PD[71]=0x01ffa023
+PD[125]=0x01ffd023
+PD[128]=0x01fea833
+PD[129]=0x01feb833
+PD[130]=0x01fec833
+PD[131]=0x01fed833
+PD[132]=0x01fee833
+PD[133]=0x01fef833
+PD[134]=0x01ff0833
+PD[135]=0x01ff1833
+PD[136]=0x01ff2833
+CR0=0x80000013
+CR3=0x01ffc000
+IA32_MMU::flush_tlb()
+copy_sys_info(from=0x10107050,to=0x1f404000,size=264)
+lmm={int=0x1f400000,gdt=0x1f401000,pt=0x1f402000,pd=0x1f403000,info=0x1f404000,mem=0x10000000,io=0x20000000,cod=0x1f700000,dat=0x1f740000,stk=0x1f7c0000,apl=0x00008000,ape=0x00008020,apc=0x00008000,apd=0x00400000,aph=0x01fa0000})
+call_next(e=0x1f700000)
+si(0x1f404000)={msize=8192,free=8096}
+iomm_size = 0x00000003
+iomm[0]={loc=0x00000010,phy=0xf0000000,log=0x20000000,size=33554432}
+iomm[1]={loc=0x00000010,phy=0xf2000000,log=0x22000000,size=4096}
+iomm[2]={loc=0x00000018,phy=0xf2020000,log=0x22020000,size=256}
+Heap::free(this=0x1f7800e0,ptr=0x1f7400e0,bytes=262144)
+Heap::alloc(this=0x1f7800e0,bytes=4) => 0x1f7800dc
+heap=0x1f7800dc
+Heap::free(this=0x1f7800e0,ptr=0x1f7800dc,bytes=4)
+Initializing EPOS abstractions: 
+IA32::init()
+IA32_TSC::init()
+IA32_MMU::init()
+IA32_MMU:: memory size = 8192 pages
+IA32_MMU:: free memory = 8096 pages
+IA32_MMU:: application's memory base = 0x00000000
+IA32_MMU:: free chunk = {base=0x0000a000,size=0x000003f6}
+IA32_MMU:: free chunk = {base=0x00401000,size=0x00001b9f}
+IA32_MMU:: physical memory logical address = 0x10000000
+Free Frames => 8085
+PC::init()
+PC_PCI::init()
+PC_IC::init()
+PC_Timer::init()
+PC_RTC::init()
+PC_Display::init()
+Address_Space::init()
+Segment::init()
+Mutex::init()
+Semaphore::init()
+Condition::init()
+Alarm::init()
+PC_Timer::resolution(res=100,cnt=11931)
+time_handler 0x00000000
+Clock::init()
+Chronometer::init()
+done! 
+IA32_MMU::alloc(frames=4096) => 0x00fa0000
+Heap::free(this=0x1f7800f0,ptr=0x00fa0000,bytes=16777216)
+Starting first process ...
+Thread::init(entry=0x00008020)
+master(t=500000,h=0x1f702db0)
+Heap::alloc(this=0x1f7800f0,bytes=44) => 0x01f9ffd4
+Heap::alloc(this=0x1f7800f0,bytes=16384) => 0x01f9bfd4
+Thread(this=0x01f9ffd4,entry=0x1f705f70,state=5,priority=15,stack={b=0x01f9bfd4,s=time_handler 0x00000000
+16384,context={b=0x01f9ffa8,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f9ffa8,eip=0x1f705f70,cs=8,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}})
+Heap::alloc(this=0x1f7800f0,bytes=44) => 0x01f9bfa8
+Heap::alloc(this=0x1f7800f0,bytes=16384) => 0x01f97fa8
+Thread(this=0x01f9bfa8,entry=0x00008020,state=0,priority=15,stack={b=0x01f97fa8,s=16384,context={b=0x01f9bf7c,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f9bf7c,eip=0x0000802time_handler 0x00000000
+0,cs=8,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}})
+Alarm test
+I'm the first thread of the first task created in the system.
+I'll now create two alarms and put myself in a delay ...
+Heap::alloc(this=0x1f7800f0,bytes=16384) => 0x01f93fa8
+Thread(this=0x01f9bf3c,entry=0x1f7039b0,state=2,priority=15,stack={b=0x01f93fa8,s=16384,context={b=0x01f97f78,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f97f78,eip=0x1f7039b0,cs=8,ds=16,es=16,fs=16,gs=1time_handler 0x01f9bfa8
+6,ss=16,pdp=0x01ffc000}})
+Alarm(t=1000000,h=0x000081b0,x=5)
+Heap::alloc(this=0x1f7800f0,bytes=16384) => 0x01f8ffa8
+Thread(this=0x01f9bef4,entry=0x1f7039b0,state=2,priority=15,stack={b=0x01f8ffa8,s=16384,context={b=0x01f93f78,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f93f78,eip=0x1f7039b0,cs=8,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}})
+Alarm(t=1000000,h=0x00008200,x=5)
+delay(t=11000000)
+Semaphore(value= 0)
+Semaphore::p(value=0)
+SLEEP p(value=-1)
+Thread::suspend(this=0x01f9bfa8)
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bf3c)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x00000006,eax=33161128,ebx=2,ecx=0,edx=33144748,esi=1104,edi=33144412,ebp=0x01f9bdf8,esp=0x01f9bd88,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bf3c,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f97f78,eip=0x1f7039b0,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=4)
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Thread::sutime_handler 0x01f9bf3c
+spend(this=0x01f9bf3c)
+old={0x01f9bf3c,{eflags=0x00000006,eax=5,ebx=2,ecx=2,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f97f78,eip=0x00000007,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33128312,ebx=33144636,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bef4)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144636,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bef4,{eflags=0x00000200,eax=1,ebx=2,ecx=3,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f93f78,eip=0x1f7039b0,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=4)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbtime_handler 0x01f9bef4
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Thread::suspend(this=0x01f9bef4)
+old={0x01f9bef4,{eflags=0x00000006,eax=5,ebx=2,ecx=2,edx=4,esi=5,edi=6,ebp=0x00000007,esp=0x01f93f78,eip=0x00000007,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33111928,ebx=33144564,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bf3c)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144564,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bf3c,{eflags=0x00000012,eax=33160868,ebx=33144744,ecx=527463179,edx=33144640,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=3)
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatime_handler 0x01f9bf3c
+aaaaaaaaaaaaaaaaaaaaaaaaaaa
+Thread::suspend(this=0x01f9bf3c)
+old={0x01f9bf3c,{eflags=0x01f97f3c,eax=0,ebx=33144744,ecx=33128239,edx=33128108,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33128108,ebx=33144636,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bef4)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=16791649,ecx=33144744,edx=33160868,esi=33160876,edi=527463293,ebp=0x31307830,esp=0x66623966,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bef4,{eflags=0x00000002,eax=33160868,ebx=33144744,ecx=527463179,edx=33144568,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=3)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbtime_handler 0x01f9bef4
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Thread::suspend(this=0x01f9bef4)
+old={0x01f9bef4,{eflags=0x01f93f3c,eax=0,ebx=33144744,ecx=33111855,edx=33111724,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33111724,ebx=33144564,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the mtime_handler 0x01f9bfa8
+oment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bf3c)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144564,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bf3c,{eflags=0x00000012,eax=33160868,ebx=33144744,ecx=527463179,edx=33144640,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=2)
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatime_handler 0x01f9bf3c
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Thread::suspend(this=0x01f9bf3c)
+old={0x01f9bf3c,{eflags=0x01f97f3c,eax=0,ebx=33144744,ecx=33128239,edx=33128108,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33128108,ebx=33144636,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the momentime_handler 0x01f9bfa8
+t!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bef4)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144636,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bef4,{eflags=0x00000002,eax=33160868,ebx=33144744,ecx=527463179,edx=33144568,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=2)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbtime_handler 0x01f9bef4
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Thread::suspend(this=0x01f9bef4)
+old={0x01f9bef4,{eflags=0x01f93f3c,eax=0,ebx=33144744,ecx=33111855,edx=33111724,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33111724,ebx=33144564,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the moment!
+Haltintime_handler 0x01f9bfa8
+g the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bf3c)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144564,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bf3c,{eflags=0x00000012,eax=33160868,ebx=33144744,ecx=527463179,edx=33144640,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=1)
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaatime_handler 0x01f9bf3c
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Thread::suspend(this=0x01f9bf3c)
+old={0x01f9bf3c,{eflags=0x01f97f3c,eax=0,ebx=33144744,ecx=33128239,edx=33128108,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33128108,ebx=33144636,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at the moment!
+Halttime_handler 0x01f9bfa8
+ing the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bef4)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144636,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bef4,{eflags=0x00000002,eax=33160868,ebx=33144744,ecx=527463179,edx=33144568,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=1)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbtime_handler 0x01f9bef4
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Thread::suspend(this=0x01f9bef4)
+old={0x01f9bef4,{eflags=0x01f93f3c,eax=0,ebx=33144744,ecx=33111855,edx=33111724,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33111724,ebx=33144564,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threatime_handler 0x01f9bfa8
+ds at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bf3c)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144564,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bf3c,{eflags=0x00000012,eax=33160868,ebx=33144744,ecx=527463179,edx=33144640,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=0)
+aaaaaaaaaaaaaaaaaaaaaaaatime_handler 0x01f9bf3c
+aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+Thread::suspend(this=0x01f9bf3c)
+old={0x01f9bf3c,{eflags=0x01f97f3c,eax=0,ebx=33144744,ecx=33128239,edx=33128108,esi=33128239,edi=33160868,ebp=0x01f97f3c,esp=0x01f97ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33128108,ebx=33144636,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads atime_handler 0x01f9bfa8
+t the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::resume(this=0x01f9bef4)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144636,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bef4,{eflags=0x00000002,eax=33160868,ebx=33144744,ecx=527463179,edx=33144568,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f70662a,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+executing handler(t=0)
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbtime_handler 0x01f9bef4
+bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+Thread::suspend(this=0x01f9bef4)
+old={0x01f9bef4,{eflags=0x01f93f3c,eax=0,ebx=33144744,ecx=33111855,edx=33111724,esi=33111855,edi=33160868,ebp=0x01f93f3c,esp=0x01f93ecc,eip=0x1f706573,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x01f9bfa8,{eflags=0x00000046,eax=33111724,ebx=33144564,ecx=527463179,edx=33144748,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705b00,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+Thread::idle()
+There are no runnable threads at ttime_handler 0x01f9bfa8
+he moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Semaphore::v(value=-1)
+Thread::resume(this=0x01f9bfa8)
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+Thread::idle()
+There are no runnable threads at the moment!
+Halting the CPU ...
+time_handler 0x01f9bfa8
+0x01f9bfa8 Thread::yield()
+old={0x01f9bfa8,{eflags=0x01f9ff34,eax=33160998,ebx=33144564,ecx=33144744,edx=33160868,esi=33144744,edi=527463177,ebp=0x01f9ff34,esp=0x01f9fec4,eip=0x1f705a49,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}
+new={0x00000000,{eflags=0x00000000,eax=0,ebx=0,ecx=0,edx=0,esi=0,edi=0,ebp=0x00000000,esp=0x00000000,eip=0x00000000,cs=48,ds=16,es=16,fs=16,gs=16,ss=16,pdp=0x01ffc000}}

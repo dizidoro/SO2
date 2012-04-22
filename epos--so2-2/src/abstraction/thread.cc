@@ -26,8 +26,7 @@ int Thread::join() {
     
     if(Traits::active_scheduler)
 	CPU::int_disable();
-    _who_joined = 0;//gambiarra tirar
-    
+    _who_joined = 0;
     
     if(_who_joined == 0){//se _who_joined ainda nao foi setado
     	_who_joined = _running;
@@ -132,10 +131,11 @@ void  Thread::resume() {
 }
 
 void Thread::yield() {
-    db<Thread>(TRC) << "Thread::yield()\n";
+    db<Thread>(TRC) << _running << " Thread::yield()\n";
     if(Traits::active_scheduler)
 	CPU::int_disable();
 
+    
     if(!_ready.empty()) {
         Thread * old;
         if(_running->_state == IDLE)
@@ -149,13 +149,16 @@ void Thread::yield() {
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;
 
-// 	old->_context->save(); // can be used to force an update
-	db<Thread>(INF) << "old={" << old << "," 
+        if(old != _running) {
+
+// 	    old->_context->save(); // can be used to force an update
+	    db<Thread>(INF) << "old={" << old << "," 
 			<< *old->_context << "}\n";
-	db<Thread>(INF) << "new={" << _running << "," 
+	    db<Thread>(INF) << "new={" << _running << "," 
 			<< *_running->_context << "}\n";
 
-	CPU::switch_context(&old->_context, _running->_context);
+            CPU::switch_context(&old->_context, _running->_context);
+        }
     }
 
     if(Traits::active_scheduler)
@@ -219,13 +222,13 @@ void Thread::exit(int status)
 
 void Thread::idle() {
     while (true) {
-    db<Thread>(TRC) << "Thread::idle()\n";
+        db<Thread>(TRC) << "Thread::idle()\n";
 
-    db<Thread>(WRN) << "There are no runnable threads at the moment!\n";
-    db<Thread>(WRN) << "Halting the CPU ...\n";
+        db<Thread>(WRN) << "There are no runnable threads at the moment!\n";
+        db<Thread>(WRN) << "Halting the CPU ...\n";
 
-    CPU::int_enable();
-    CPU::halt();
+        CPU::int_enable();
+        CPU::halt();
     }
 }
 

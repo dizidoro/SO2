@@ -34,8 +34,10 @@ public:
 	    CPU::int_disable();
 	        
 	dec(_value);
-	if(_value < 0)
+	if(_value < 0){
+            db<Semaphore>(TRC) << "SLEEP p(value=" << _value << ")\n";
 	    sleep();
+        }
 	
 	if(Traits_Thread::active_scheduler)
 	    CPU::int_enable();

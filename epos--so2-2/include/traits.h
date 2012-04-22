@@ -13,7 +13,7 @@ __BEGIN_SYS
 template <class Imp>
 struct Traits
 {
-    static const bool debugged = true;
+    static const bool debugged = false;
 };
 
 class Null_Debug;

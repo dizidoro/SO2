@@ -32,7 +32,6 @@ protected:
 
 
     // Thread operations
-
     void sleep() {
 	if(!busy_waiting) {
        	    Thread * running = Thread::running();

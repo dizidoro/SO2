@@ -55,6 +55,7 @@ public:
     // is due to the fact that the thread's function believes it's a normal
     // function that will be invoked with a call, which pushes the return
     // address on the stack
+
     Thread(int (* entry)(), 
 	   const State & state = READY,
 	   const Priority & priority = NORMAL,
@@ -87,7 +88,6 @@ public:
 	  _state(state),
 	  _priority(priority),
 	  _link(this),
-	  _link_sync(this),
 	  _link_sync(this),
 	  _who_joined(0)
     {

@@ -36,14 +36,14 @@ int main()
 
 void func_a()
 {
-    for(int i = 0; i < 79; i++)
-	cout << "a";
+    for(int i = 0; i < 77; i++)
+        cout << "a";
     cout << "\n";
 }
 
 void func_b(void)
 {
-    for(int i = 0; i < 79; i++)
+    for(int i = 0; i < 77; i++)
 	cout << "b";
     cout << "\n";
 }

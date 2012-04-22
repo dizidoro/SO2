@@ -16,18 +16,21 @@ volatile Alarm::Tick Alarm::_elapsed;
 Alarm::Handler Alarm::_master;
 Alarm::Tick Alarm::_master_ticks;
 Alarm::Queue Alarm::_requests;
+Alarm::Semaphore_Queue Alarm::_delays;
 
 // Methods
 Alarm::Alarm(const Microseconds & time, const Handler & handler, int times)
-    : _ticks((time + period() / 2) / period()), _handler(handler),
-      _times(times), _link(this)
+    : _ticks((time + period() / 2) / period()),
+      _times(times), _link(this), _handler(handler),
+      _handler_thread(&(Alarm::handler_wrapper), this, Thread::SUSPENDED)
 {
     db<Alarm>(TRC) << "Alarm(t=" << time << ",h=" << (void *)handler
 		   << ",x=" << times << ")\n";
+    
     if(_ticks)
 	_requests.insert(&_link);
     else
-	handler();
+	_handler_thread.resume();
 }
 
 Alarm::~Alarm() {
@@ -47,18 +50,31 @@ void Alarm::master(const Microseconds & time, const Handler & handler)
 void Alarm::delay(const Microseconds & time)
 {
     db<Alarm>(TRC) << "delay(t=" << time << ")\n";
+    if(Traits_Thread::active_scheduler)
+	    CPU::int_disable();//nao posso dar resume antes de dar suspend 
+    
     Tick t = _elapsed + time / period();
-    while(_elapsed < t);
+
+    if(t) {
+        Semaphore sem(0);
+        Semaphore_Queue::Element link(&sem, t);
+        _delays.insert(&link);
+        sem.p();
+    }
 }
 
 void Alarm::timer_handler(void)
 {
-    static Tick next;
-    static Handler handler;
+    db<Alarm>(TRC) << "time_handler " << Thread::running() << "\n";
+    static Tick next_request;
+    static Tick next_delay;
+
+    static Thread * handler;
+    static Semaphore * semaphore;
 
     _elapsed++;
     
-    if(Traits::visible) {
+    if(Traits_Alarm::visible) {
 	Display display;
 	int lin, col;
 	display.position(&lin, &col);
@@ -72,27 +88,55 @@ void Alarm::timer_handler(void)
 	    _master();
     }
 
-    if(next)
-	next--;
-    if(!next) {
+    if(next_request)
+	next_request--;
+    else {
 	if(handler)
-	    handler();
+	    handler->resume();
 	if(_requests.empty())
 	    handler = 0;
 	else {
-		Queue::Element * e = _requests.remove();
-	   	Alarm * alarm = e->object();
-	    next = alarm->_ticks;
-	    handler = alarm->_handler;
+            Queue::Element * e = _requests.remove();
+	    Alarm * alarm = e->object();
+	    next_request = alarm->_ticks;
+	    handler = &(alarm->_handler_thread);
 	    if(alarm->_times != -1)
 		alarm->_times--;
 	    if(alarm->_times) {
 			e->rank(alarm->_ticks);
 			_requests.insert(e);
 	    }
-
+            
 	}
     }
+
+    if(next_delay)
+        next_delay--;
+    else {
+        if(semaphore)
+            semaphore->v();
+        if(_delays.empty())
+            semaphore = 0;
+        else {
+            Semaphore_Queue::Element * se = _delays.remove();
+            semaphore = se->object();
+            next_delay = se->rank();
+        }
+    }
+}
+
+int Alarm::handler_wrapper(Alarm * alarm){
+    while(true) {
+        db<Alarm>(TRC) << "executing handler(t=" << alarm->_times << ")\n";
+        alarm->_handler();
+/*
+        if(!alarm->_times)
+            break;
+*/
+        alarm->_handler_thread.suspend();
+    }
+
+    return 0;
 }
 
 __END_SYS

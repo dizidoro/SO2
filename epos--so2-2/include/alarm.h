@@ -13,18 +13,22 @@
 #include <tsc.h>
 #include <rtc.h>
 #include <timer.h>
+#include <thread.h>
+#include <semaphore.h>
 
 __BEGIN_SYS
 
 class Alarm
 {
 private:
-    typedef Traits<Alarm> Traits;
+    typedef Traits<Alarm> Traits_Alarm;
+    typedef Traits<Thread> Traits_Thread;
     static const Type_Id TYPE = Type<Alarm>::TYPE;
 
     static const int FREQUENCY = __SYS(Traits)<Timer>::FREQUENCY;
 
     typedef Relative_Queue<Alarm> Queue;
+    typedef Relative_Queue<Semaphore> Semaphore_Queue;
 
     typedef TSC::Hertz Hertz;
     typedef TSC::Time_Stamp Time_Stamp;
@@ -53,9 +57,11 @@ public:
 private:
     static Microseconds period() { return 1000000 / frequency(); }
     static void timer_handler(void);
+    static int handler_wrapper(Alarm * alarm);
 
 private:
     Tick _ticks;
+    Thread _handler_thread;
     Handler _handler;
     int _times;
     Queue::Element _link;
@@ -65,6 +71,7 @@ private:
     static Handler _master;
     static Tick _master_ticks;
     static Queue _requests;
+    static Semaphore_Queue _delays;
 };
 
 __END_SYS
