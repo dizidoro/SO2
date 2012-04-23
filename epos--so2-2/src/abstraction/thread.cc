@@ -26,7 +26,7 @@ int Thread::join() {
     
     if(Traits::active_scheduler)
 	CPU::int_disable();
-    _who_joined = 0;
+   
     
     if(_who_joined == 0){//se _who_joined ainda nao foi setado
     	_who_joined = _running;
@@ -169,7 +169,7 @@ void Thread::yield() {
 
 void Thread::exit(int status)
 {
-    db<Thread>(TRC) << "Thread::exit(status=" << status <<", running state=" <<_running->_state << ")\n";
+    db<Thread>(TRC) << "Thread::exit(status=" << status <<", running state=" << _running->_state << ", running=" << _running << " )\n";
   
     if(Traits::active_scheduler)
 	CPU::int_disable();

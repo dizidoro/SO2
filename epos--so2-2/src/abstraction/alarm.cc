@@ -50,8 +50,7 @@ void Alarm::master(const Microseconds & time, const Handler & handler)
 void Alarm::delay(const Microseconds & time)
 {
     db<Alarm>(TRC) << "delay(t=" << time << ")\n";
-    if(Traits_Thread::active_scheduler)
-	    CPU::int_disable();//nao posso dar resume antes de dar suspend 
+   
     
     Tick t = _elapsed + time / period();
 
@@ -65,7 +64,7 @@ void Alarm::delay(const Microseconds & time)
 
 void Alarm::timer_handler(void)
 {
-    db<Alarm>(TRC) << "time_handler " << Thread::running() << "\n";
+    
     static Tick next_request;
     static Tick next_delay;
 
@@ -129,10 +128,10 @@ int Alarm::handler_wrapper(Alarm * alarm){
     while(true) {
         db<Alarm>(TRC) << "executing handler(t=" << alarm->_times << ")\n";
         alarm->_handler();
-/*
+
         if(!alarm->_times)
             break;
-*/
+
         alarm->_handler_thread.suspend();
     }
 
