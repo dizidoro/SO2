@@ -92,8 +92,8 @@ void  Thread::suspend() {
     if(_state != IDLE) {
         if(_running != this)
 	    _ready.remove(this);
-        _state = SUSPENDED;
-        _suspended.insert(&_link);
+        _running->_state = SUSPENDED;
+        _suspended.insert(&_running->_link);
     }
 
     if(!_ready.empty()) {
@@ -107,8 +107,10 @@ void  Thread::suspend() {
 			<< *_running->_context << "}\n";
 
 	CPU::switch_context(&_context, _running->_context);
-    } else if (_running->_state != IDLE)
+    } else if (_running->_state != IDLE){
+        _running = 0;   
 	CPU::switch_context(&_context, _idle->_context);
+    }
 
     if(Traits::active_scheduler)
 	CPU::int_enable();
@@ -149,7 +151,7 @@ void Thread::yield() {
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;
 
-        if(old != _running) {
+        //if(old != _running) {
 
 // 	    old->_context->save(); // can be used to force an update
 	    db<Thread>(INF) << "old={" << old << "," 
@@ -158,7 +160,7 @@ void Thread::yield() {
 			<< *_running->_context << "}\n";
 
             CPU::switch_context(&old->_context, _running->_context);
-        }
+        //}
     }
 
     if(Traits::active_scheduler)
