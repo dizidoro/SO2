@@ -55,10 +55,10 @@ void Alarm::delay(const Microseconds & time)
     Tick t = _elapsed + time / period();
 
     if(t) {
-        Semaphore sem(0);
-        Semaphore_Queue::Element link(&sem, t);
+        Semaphore semaphore(0);
+        Semaphore_Queue::Element link(&semaphore, t);
         _delays.insert(&link);
-        sem.p();
+        semaphore.p();
     }
 }
 
