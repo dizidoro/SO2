@@ -192,10 +192,8 @@ void Thread::exit(int status)
     if(!_ready.empty()) {
 	Thread * old = _running;
 	old->_state = FINISHING;
-        if(status == -1)
-            free(_running->_stack);
-        else
-	    *((int *)(void *)old->_stack) = status;
+
+	*((int *)(void *)old->_stack) = status;
 
 	_running = _ready.remove()->object();
 	_running->_state = RUNNING;

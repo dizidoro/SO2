@@ -20,7 +20,7 @@ int Thread::init(System_Info * si)
 	Alarm::master(Traits::quantum, &reschedule);
 
     _idle = new(malloc(sizeof(Thread))) 
-        Thread(reinterpret_cast<int (*)()>(&idle), IDLE);
+        Thread(reinterpret_cast<int (*)()>(&idle), READY, IDLE);
 
     _running = 	new(malloc(sizeof(Thread))) 
 	Thread(reinterpret_cast<int (*)()>(si->lmm.app_entry), RUNNING);

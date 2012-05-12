@@ -22,7 +22,7 @@ private:
     typedef Traits<Thread> Traits;
     static const Type_Id TYPE = Type<Thread>::TYPE;
 
-    typedef Queue<Thread> Queue;
+    typedef Ordered_Queue<Thread> Ordered_Queue;
 
     static const unsigned int STACK_SIZE = 
 	__SYS(Traits)<Machine>::APPLICATION_STACK_SIZE;
@@ -47,7 +47,8 @@ public:
     enum {
 	HIGH = 0,
 	NORMAL = 15,
-	LOW = 31
+	LOW = 31,
+        IDLE = 63
     };
 
 public:
@@ -165,8 +166,8 @@ public:
     void suspend();
     void resume();
     
-    Queue::Element * link_sync();
-    void sync_queue(Queue * queue);
+    Queue<Thread>::Element * link_sync();
+    void sync_queue(Queue<Thread> * queue);
 
     static void yield();
     static void exit(int status = 0);
@@ -211,17 +212,17 @@ private:
     Context * volatile _context;
     volatile State _state;
     volatile Priority _priority;
-    Queue::Element _link;
+    Ordered_Queue::Element _link;
 
-    Queue::Element _link_sync;
+    Queue<Thread>::Element _link_sync;
     Thread * _who_joined;
-    Queue * _sync_queue;
+    Queue<Thread> * _sync_queue;
 
     static Thread * volatile _running;
     static Thread * _idle;    
 
-    static Queue _ready;
-    static Queue _suspended;
+    static Ordered_Queue _ready;
+    static Ordered_Queue _suspended;
 };
 
 __END_SYS

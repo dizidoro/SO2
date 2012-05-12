@@ -10,7 +10,7 @@
 
 __USING_SYS
 
-const int iterations = 5;
+const int iterations = 100;
 
 void func_a(void);
 void func_b(void);

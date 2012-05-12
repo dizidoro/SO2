@@ -7,6 +7,7 @@
 
 #include <alarm.h>
 #include <display.h>
+#include <utility/ostream.h>
 
 __BEGIN_SYS
 
@@ -17,6 +18,8 @@ Alarm::Handler Alarm::_master;
 Alarm::Tick Alarm::_master_ticks;
 Alarm::Queue Alarm::_requests;
 Alarm::Semaphore_Queue Alarm::_delays;
+
+OStream cout;
 
 // Methods
 Alarm::Alarm(const Microseconds & time, const Handler & handler, int times)
@@ -72,6 +75,7 @@ void Alarm::timer_handler(void)
     static Semaphore * semaphore;
 
     _elapsed++;
+    //cout << _elapsed << "\n";
     
     if(Traits_Alarm::visible) {
 	Display display;
@@ -128,6 +132,7 @@ int Alarm::handler_wrapper(Alarm * alarm){
     while(true) {
         db<Alarm>(TRC) << "executing handler(t=" << alarm->_times << ")\n";
         alarm->_handler();
+
 
         if(!alarm->_times)
             break;
